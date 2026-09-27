@@ -1,0 +1,25 @@
+{
+  "source": "https://huggingface.co/datasets/MikhailT/cmu-arctic",
+  "splitRoles": {
+    "a0001-a0003": "pitch calibration",
+    "a0004-a0008": "held-out evaluation"
+  },
+  "rawWavSha256": {
+    "bdl-a0001.wav": "2594562568c97203d6c3c2c2ff87b9a7c62389100a014934ab0ad39d15af0384",
+    "bdl-a0002.wav": "88b2c3f29f696637ec34f8a031964920d7e187a903ba88fd720d3cb1b0d50c2a",
+    "bdl-a0003.wav": "6bf2ec5e40a8a01a690d7aa5d1aa3a1489baae614850c7a716bf00092b005028",
+    "bdl-a0004.wav": "9014c7af0c450ffab8a64f211559ed6eb61d1eb6c8a8288cca40325e64f702e7",
+    "bdl-a0005.wav": "b654e28a68b0f49d40f715744f99f4bba338b1f66e61b58e428588e886d8fa1f",
+    "bdl-a0006.wav": "e6a208e722288591e15bc5e4a509002514b234661c6a411b9da96f21a25d492e",
+    "bdl-a0007.wav": "d324b72f14c530d4f6caaf7bac20b669d8d181d03ced45f19a028003ae01ebab",
+    "bdl-a0008.wav": "e1bd98e83ec2a6427eb60542aa5f7bf2e69d62223f5999f8d4ef0cc4cf312874",
+    "slt-a0001.wav": "7862eb2cccb56875910f6bf46f9b8d26dac36e7672829aabe3956b0837ae122e",
+    "slt-a0002.wav": "d09c9367d7e756cb5f6854d4e8a279e6e6e543fafeb4d04b32757c639f7f38d3",
+    "slt-a0003.wav": "0b32e00846e132826f46d7e5cabb2d8b370a5dc654bac0447cb63285f81cc413",
+    "slt-a0004.wav": "2a653cf74346ff24690f8a2abcff5091b81463f277b0062c851031a293f25167",
+    "slt-a0005.wav": "f93c823f955875d2389ae0f731a95128afb1ee096df7614e063e8b4b5695801d",
+    "slt-a0006.wav": "69b800a69455e35d05162b78b69446294ace69be903693ffd02ccd0150f17d66",
+    "slt-a0007.wav": "3c10caa9c2b5434f64c393a85a70aba57adf2858628d7983a8fd4f98a19a83d6",
+    "slt-a0008.wav": "603ac9585ddb5022d9c973bde867d7957fa1b8c1f44b2ee40fbbafedde8b5f0e"
+  }
+}

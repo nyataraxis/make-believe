@@ -1,0 +1,17 @@
+{
+  "source": "https://github.com/SpAA-LAB/Vowels-Recordings",
+  "zenodo": "https://zenodo.org/records/17611711",
+  "processing": "Select right channel, scale int16 by 32768, resample 44100 to 48000 with scipy.signal.resample_poly(160,147); source language is undetermined",
+  "rawWavSha256": {
+    "A_female.wav": "a91802f83d1ef9b8bbf12537e5e60caafaa3092ad84d8272b43536946830204b",
+    "A_male.wav": "ff2b08ab8b9a1d7bd45ba819f1d4d6b7fc08fc6db384dfa53525ee3593fd18a7",
+    "E_female.wav": "f5b1253e2ddb7af1a079520e9728fe552ae126a46604e908414174e221c17442",
+    "E_male.wav": "f3d124763ce167a285147840d177f71703d11207e8805f11c3e5a77b753d2ea1",
+    "I_female.wav": "91af4cf16acbcbb225ddf9e8e2d4907d14c95dacdc0b589f2acf77a3d34236d9",
+    "I_male.wav": "c54193053dd4d6d166a244d5851e8dcb164b4e2ca09176c520a8b5b9c00a5062",
+    "O_female.wav": "9f87480138a404932aa60dc72d23375213cd8291f395702a08727f4bac148276",
+    "O_male.wav": "0771406aa563e89d7348bac80d1eaa1fef3bff0d243c8d429e04e5a4c7d5090a",
+    "U_female.wav": "c4734d27679314e0ef4ccbfb68bd95d9d50c895a162f5206c6a4ce3d1c1f64c9",
+    "U_male.wav": "85f85c4dce64217cf7ed6b3866d2b0d1ae2547bf57f3d710d0a418387f14d359"
+  }
+}

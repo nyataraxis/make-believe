@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "make-believe-voiceprof"
+version = "0.1.0"
+description = "Offline acoustic research harness for a parametric voice morpher"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "praat-parselmouth>=0.4.4",
+]
+
+[project.optional-dependencies]
+world = ["pyworld>=0.3.4"]
+dev = ["pytest>=8", "jsonschema>=4", "cmake>=3.27", "ninja>=1.11"]
+
+[project.scripts]
+voiceprof = "voiceprof.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "profiler"}
+
+[tool.setuptools.packages.find]
+where = ["profiler"]
+
+[tool.pytest.ini_options]
+testpaths = ["profiler/tests"]

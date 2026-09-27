@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-profiler:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install uv
+        run: python -m pip install uv
+      - name: Install locked dependencies
+        run: uv sync --extra dev --extra world --locked
+      - name: Test profiler
+        run: .venv\Scripts\python.exe -m pytest profiler/tests -q
+
+  native-core:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Configure and build
+        run: |
+          cmake -S . -B build -A x64
+          cmake --build build --config Release --parallel
+      - name: Test native core
+        run: ctest --test-dir build -C Release --output-on-failure
+
+  rubberband-adapter:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Fetch pinned Rubber Band source
+        shell: pwsh
+        run: |
+          git clone https://github.com/breakfastquay/rubberband.git external/rubberband
+          git -C external/rubberband checkout e4296ac80b1170018a110bc326fd0d45a0eb27d6
+      - name: Configure and build
+        run: |
+          cmake -S . -B build -A x64 -DRUBBERBAND_SOURCE_DIR="${{ github.workspace }}/external/rubberband"
+          cmake --build build --config Release --parallel
+      - name: Test adapter
+        run: ctest --test-dir build -C Release --output-on-failure
+      - name: Install Python test dependencies
+        run: |
+          python -m pip install uv
+          uv sync --extra dev --locked
+      - name: Test native WAV integration
+        env:
+          MORPH_RAW_EXECUTABLE: ${{ github.workspace }}\build\Release\morph_raw.exe
+        run: .venv\Scripts\python.exe -m pytest profiler/tests/test_native_render.py -q

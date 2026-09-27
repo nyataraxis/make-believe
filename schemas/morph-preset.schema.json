@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://make-believe.local/schemas/morph-preset.schema.json",
+  "title": "Research morph preset v1",
+  "type": "object",
+  "required": ["schemaVersion", "id", "sourceProfileId", "targetProfileId", "sourceProfileSha256", "targetProfileSha256", "language", "mode", "sampleRate", "pitch", "vocalTract", "spectral", "sourceQuality", "dynamics", "safety", "quality"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "id": {"type": "string", "minLength": 1},
+    "sourceProfileId": {"type": "string", "minLength": 1},
+    "targetProfileId": {"type": "string", "minLength": 1},
+    "sourceProfileSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "targetProfileSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "language": {"type": "string", "minLength": 1},
+    "mode": {"enum": ["speech", "singing"]},
+    "sampleRate": {"type": "integer", "minimum": 16000},
+    "pitch": {
+      "type": "object",
+      "required": ["mode", "strength", "sourceKnotsLog2Hz", "targetKnotsLog2Hz", "extrapolation", "limits", "smoothing"],
+      "properties": {
+        "mode": {"const": "quantile"},
+        "strength": {"type": "number", "minimum": 0, "maximum": 1},
+        "sourceKnotsLog2Hz": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"type": "number"}},
+        "targetKnotsLog2Hz": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"type": "number"}}
+      }
+    },
+    "vocalTract": {
+      "type": "object",
+      "required": ["strength", "representation", "warp", "voicedStrength", "unvoicedStrength", "maxWarpRatio"],
+      "properties": {
+        "representation": {"const": "piecewise_warp"},
+        "warp": {
+          "type": "array", "minItems": 2,
+          "items": {
+            "type": "object", "required": ["inputHz", "outputHz"],
+            "properties": {"inputHz": {"type": "number", "exclusiveMinimum": 0}, "outputHz": {"type": "number", "exclusiveMinimum": 0}}
+          }
+        }
+      }
+    },
+    "spectral": {"type": "object"},
+    "sourceQuality": {"type": "object"},
+    "dynamics": {"type": "object"},
+    "safety": {"type": "object"},
+    "quality": {"type": "object"}
+  }
+}

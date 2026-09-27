@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0",
+  "id": "synthetic-cross-language",
+  "sourceProfileId": "synthetic-source",
+  "targetProfileId": "synthetic-target",
+  "sourceProfileSha256": "c95a2cb49fef0a728942a38a65f02b135f0b45b2f7156e2970b76c7023cd0f94",
+  "targetProfileSha256": "7af1c61f5926887c4912976db1fd19bf7e79ebfd952ab397e7cf5da0762aa399",
+  "language": "ja-JP",
+  "mode": "speech",
+  "sampleRate": 48000,
+  "pitch": {
+    "mode": "quantile",
+    "strength": 1.0,
+    "sourceKnotsLog2Hz": [
+      6.491853096329675,
+      6.643856189774724,
+      6.845490050944375,
+      7.022367813028454,
+      7.22881869049588,
+      7.451211111832329,
+      7.60733031374961
+    ],
+    "targetKnotsLog2Hz": [
+      7.191853096329675,
+      7.3438561897747245,
+      7.545490050944375,
+      7.7223678130284545,
+      7.928818690495881,
+      8.151211111832328,
+      8.30733031374961
+    ],
+    "extrapolation": {
+      "minSlope": 0.25,
+      "maxSlope": 2.0
+    },
+    "limits": {
+      "minOutputHz": 70,
+      "maxOutputHz": 1000,
+      "maxShiftSemitones": 18
+    },
+    "smoothing": {
+      "confidenceThreshold": 0.65,
+      "attackMs": 30,
+      "releaseMs": 80
+    }
+  },
+  "vocalTract": {
+    "strength": 1.0,
+    "representation": "piecewise_warp",
+    "warp": [
+      {
+        "inputHz": 100.0,
+        "outputHz": 100.0
+      },
+      {
+        "inputHz": 250.0,
+        "outputHz": 277.75718891766303
+      },
+      {
+        "inputHz": 500.0,
+        "outputHz": 560.0000000000003
+      },
+      {
+        "inputHz": 750.0,
+        "outputHz": 840.0
+      },
+      {
+        "inputHz": 1000.0,
+        "outputHz": 1119.9999999999998
+      },
+      {
+        "inputHz": 1500.0,
+        "outputHz": 1680.0
+      },
+      {
+        "inputHz": 2000.0,
+        "outputHz": 2240.0
+      },
+      {
+        "inputHz": 3000.0,
+        "outputHz": 3363.6289634937843
+      },
+      {
+        "inputHz": 4000.0,
+        "outputHz": 4409.303238689802
+      },
+      {
+        "inputHz": 5500.0,
+        "outputHz": 5868.558514284968
+      },
+      {
+        "inputHz": 6500.0,
+        "outputHz": 6765.746431743456
+      },
+      {
+        "inputHz": 8000.0,
+        "outputHz": 8000.0
+      }
+    ],
+    "voicedStrength": 1.0,
+    "unvoicedStrength": 0.0,
+    "maxWarpRatio": 1.35
+  },
+  "spectral": {
+    "analysisBandsHz": [
+      150.0,
+      215.32335766761798,
+      309.0943223817128,
+      443.701515541517,
+      636.9286675240686,
+      914.3041285736288,
+      1312.473565958928,
+      1884.0414338151231,
+      2704.5208500932363,
+      3882.3100688277063,
+      5573.013596845217,
+      8000.0
+    ],
+    "correctionDb": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "strength": 1.0
+  },
+  "sourceQuality": {
+    "status": "unfitted"
+  },
+  "dynamics": {
+    "status": "unfitted"
+  },
+  "safety": {
+    "peakLimitDbFS": -1.0
+  },
+  "quality": {
+    "status": "research_only",
+    "warnings": [
+      "Source-quality, dynamics, and sibilance transforms remain unfitted"
+    ]
+  }
+}
