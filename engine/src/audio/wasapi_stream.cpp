@@ -47,7 +47,7 @@ public:
     AudioClient(const std::wstring& endpoint_id, bool capture) {
         try {
             ComPtr<IMMDeviceEnumerator> enumerator;
-            require_success(CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_ALL,
+            require_success(CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_ALL,
                                              IID_PPV_ARGS(&enumerator)), "CoCreateInstance");
             ComPtr<IMMDevice> device;
             require_success(enumerator->GetDevice(endpoint_id.c_str(), &device), "GetDevice");

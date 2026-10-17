@@ -57,7 +57,7 @@ std::vector<AudioEndpoint> list_audio_endpoints() {
         std::vector<AudioEndpoint> endpoints;
         {
             ComPtr<IMMDeviceEnumerator> enumerator;
-            require_success(CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_ALL,
+            require_success(CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_ALL,
                                              IID_PPV_ARGS(&enumerator)),
                             "CoCreateInstance(MMDeviceEnumerator) failed");
             append_endpoints(enumerator.Get(), eCapture, AudioDirection::capture, endpoints);
@@ -78,7 +78,7 @@ AudioEndpointFormat query_audio_endpoint_format(const std::wstring& id) {
         AudioEndpointFormat result{};
         {
             ComPtr<IMMDeviceEnumerator> enumerator;
-            require_success(CoCreateInstance(CLSID_MMDeviceEnumerator, nullptr, CLSCTX_ALL,
+            require_success(CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_ALL,
                                              IID_PPV_ARGS(&enumerator)),
                             "CoCreateInstance(MMDeviceEnumerator) failed");
             ComPtr<IMMDevice> device;
